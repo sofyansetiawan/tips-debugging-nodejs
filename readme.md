@@ -2,6 +2,56 @@
 
 
 
+Debugging adalah proses untuk menemukan bagian code mana yang tidak jalan lalu diperbaiki.
+
+Debugging membantu pendekatan untuk step by step review code.
+
+Debugging sederhana dengan memperhatikan syntax, proses, variable dan perubahan nilai secara perlahan lahan
+
+Alat untuk debugging bisa `Chrome Devtools`, `Node Debugger` atau ketika di jalankan di Node.JS (dengan `console.log()` )
+
+
+
+Umumnya error ada 3 bentuk: 
+
+1. Syntax error membuat program tidak jalan (Code editor sekarang sudah bisa mendeteksi adanya error syntax)
+2. Runtime error ketika kode gagal eksekusi atau behaviour tidak sesuai (Runtime error ketika dijalankan)
+3. Semantic logic tidak sesuai dengan sesuai keinginan (Sematic logic tidak ditemukan di code editor tapi ketika program yang kita jalankan tidak sesuai output)
+
+
+
+### Notes untuk error yang sering dialami
+
+- Untuk menghentikan infinite loop di terminal, tekan CTRL + C / Cmd + C
+- Error bisa berupa crash, running forever atau salah output
+- Infinite loop bisa memakan memory sampai habis atau memory environment
+
+- `console.log()` biasa ditujukan ketika ingin melakukan test untuk nilai dan proses. Diletakkan di point strategis untuk melihat output perubahan nilai di sesi proses tertentu
+- Jika kita ingin menjalankan debugging di Devtool atau NodeJS sebaiknya `console.clear();` dulu sebelum `console.log()` agar kita membersihkan log sebelum menjalankan proses lagi
+- Jika ingin tahu type data variabel atau struktur data menggunakan `typeof`. Misal `console.log(typeof variabel1);` atau `if(typeof variabel1 === 'string')`. Makanya harus di cek tipe datanya agar tidak salah perhitungan dan salah saat argumen
+- Tipe data immutable: Boolean, Null, Undefined, Number, String, and Symbol (ES6) and one type for mutable items: Object
+- Selalu teliti dalam penulisan pengejaan, terlebih variabel. Jadi sebelum masuk ke baris berikutnya coba review baris tersebut. Dan gunakan autocomplete di text editor
+- Tips nya gunakan penamaan variabel yang mewakili nilai proses, familiar dan seragam (camelCase). Karena variabel dan function itu case-sensitive
+- Kesalahan sintaksis sering kurang penutup function, parenthesis dan kode bersarang
+- Ketika bertemu string tanpa ES6 Literal dan ada bentrok dengan quote ' atau ", gunakan escape character backslash \. Misal \' \" \n 
+- Perhatikan "falsy" values: false, 0, "" (an empty string), NaN, undefined, and null dalam kondisi dan loop 
+- Strict Equality (`===`): cek nilai dan tipe datanya
+- Jika kita melakukan assignment di dalam if maka nilai dari variabel akan berubah dan bisa jadi menjadi true
+- **Off by one errors** (sometimes called **OBOE**) mengakses index di string/array. Index selalu lebih rendah dari length. Jika index sama dengan length maka undefined.
+- Inisialisasi variabel di dalam looping maka akan inisialisasi ulang setiap loop dan mereset nilainya dan dianggap variabel baru. Ini hanya berguna untuk temp dalam 1 loop misalnya ditampung oleh variabel lain. (Bisa menyebabkan infinite loop)
+- Maka harus dipikirkan apakah variabel harus di inisialisasi ulang ditaruh di dalam loop atau diluar.
+- Infinite loop bisa terjadi ketika ada kondisi yang mengubah kondisi menjadi selalu true. Loop tak terbatas bisa crash di browser, crash di memory komputer dan kekacuan eksekusi program lain. Pastikan selalu ada kondisi untuk keluar dari loop.
+- Umumnya terjadi pergeseran nilai variabel (bisa juga counter) ke arah yang salah atau mereset variabel di setiap proses loop
+- Ketika memanggil function tidak menggunakan parenthesis, maka dia tidak menggunakan argument. Bahkan tidak mengembalikan return undefined
+- Tempatkan argument urutannya tepat agak tidak terjadi error type data maka bisa saya runtime error
+  
+
+------
+
+
+
+## Debugging dengan Node Debugger
+
 Debugging dengan terminal itu untuk membantu tracing semantic logic error. Dia tidak untuk mendeteksi syntax dan runtime error. Karena syntax dan runtime error otomatis akan ditangkap oleh node.
 
 
