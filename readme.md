@@ -203,4 +203,4 @@ Di inspector node.js terdapat `watcher` (pengamat expression)
 
 7. Klik tombol next / step-in / step-out untuk step memeriksa expression yang selalu berhenti di code `debugger`
 
-![picture](/Users/sofyansetiawan/Hacktiv8/MATERI LECTURE PHASE 1/LECTURE PHASE 1/debugger/picture.png)
+![picture](picture.png)
